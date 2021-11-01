@@ -8,3 +8,6 @@
 
 /* Screens */
 @import "screens/index.css";
+@import "screens/login.css";
+@import "screens/join.css";
+@import "screens/my_page.css";
