@@ -21,6 +21,13 @@
             background: url(../../img/puppy.jpg) center/cover no-repeat;
             margin: 100px;
         }
+        #logo_img:hover {
+            cursor: pointer;
+            transform: scale(1.02);
+            transition: all 300ms ease;
+        }
+
+
 
         .logintab {
             background-color: white;
