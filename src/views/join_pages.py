@@ -1,4 +1,5 @@
-from flask import Blueprint, render_template, redirect, url_for, request, flash
+from flask import Blueprint, render_template, redirect, url_for, request, flash, jsonify
+from src.database.user_db import User
 import datetime
 
 join_pages = Blueprint('join_pages', __name__, url_prefix="/join")
@@ -10,23 +11,31 @@ def join():
 @join_pages.route("/", methods=["POST"])
 def join_post():
 
-    from src.database.user_db import User
 
-    password = request.form["pw"]
-    password2 = request.form["pw2"]
+    password = request.form["userPW"]
+    password2 = request.form["userPW2"]
 
-    if password == password2:
-        new_user = {
-            "email":request.form["email"],
-            "user_name":request.form["name"],
-            "nick_name":request.form["nickname"],
-            "password":User.password_encry(password),
-            "created_date":datetime.datetime.now()
-        }
+    if password != password2:
+        return redirect("/join")
+
+    new_user = {
+        "email":request.form.get("email"),
+        "user_name":request.form.get("user_name"),
+        "nick_name":request.form.get("nickname"),
+        "password":User.password_encry(password),
+        "created_date":datetime.datetime.now()
+    }
 
     result = User.insert_user(new_user)
 
     if result is False:
-        print("잘못 들어감")
-    # return redirect("/login")
+        flash("중복된 아이디입니다.");
+
     return redirect(url_for("login_pages.login"))
+
+
+@join_pages.route('check_dup', methods=['POST'])
+def check_dup():
+    email_receive = request.form['username_give']
+    exists = User.find_user(email_receive)
+    return jsonify({'result': 'success', 'exists': exists})

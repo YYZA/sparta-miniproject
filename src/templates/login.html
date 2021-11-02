@@ -1,7 +1,7 @@
 {% extends "base.html"  %}
 {% block content %}
     <div class="back">
-        <a href="#">
+        <a href="/">
             <div id="logo_img"></div>
         </a>
         <form  action="" method="post" class="logintab">
@@ -16,7 +16,7 @@
             </div>
 
             <a onclick="checkForm()" type="submit" class="btn btn-dark">로그인 🐶</a>
-            <a href="http://192.168.0.8:5000/join" type="submit" class="btn btn-dark">회원가입 🐱</a>
+            <a href="/join" type="submit" class="btn btn-dark">회원가입 🐱</a>
         </form>
     </div>
 <script defer src="{{ url_for('static', filename='js/login.js') }}"></script>
