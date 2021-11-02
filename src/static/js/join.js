@@ -42,21 +42,22 @@ function check_pw() {
 }
 
 function sendDB() {
-    let email = $('#email').val()
-    let nickname = $('#nickname').val()
-    let name = $('#name').val()
-    let pw = $('#pw').val()
-    console.log(email)
 
     $.ajax({
         type: 'POST',
-        url: "/join",
-        data: {email_give:email, nickname_give :nickname, name_give:name, pw_give:pw},
-        error: function (error) {
-            alert("Error!");
+        url: "/join/",
+        data: {
+            email:$('#email').val(),
+            nickname :$('#nickname').val(),
+            name:$('#name').val(),
+            pw:$('#pw').val(),
+            pw2:$('#pw2').val()
         },
         success: function (response) {
             alert("회원가입이 완료되었습니다!");
+        },
+        error: function (error) {
+            alert("Error!");
         }
     })
 }
