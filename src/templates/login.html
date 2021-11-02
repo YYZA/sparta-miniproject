@@ -1,21 +1,23 @@
 {% extends "base.html"  %}
 {% block content %}
     <div class="back">
-        <a href="http://192.168.0.8:5000/join">
+        <a href="#">
             <div id="logo_img"></div>
         </a>
-        <form  class="logintab">
+        <form  action="" method="post" class="logintab">
             <div class="form-group">
-                <label for="id">ID</label>
-                <input type="email"  class="form-control" id="id" aria-describedby="emailHelp"
+                <label for="id">E-mail</label>
+                <input type="email"  class="form-control" id="email" aria-describedby="emailHelp"
                        placeholder="Enter email">
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
                 <input type="password" class="form-control" id="password" placeholder="Password">
             </div>
-            <a type="submit" class="btn btn-dark">로그인 🐶</a>
+
+            <a onclick="checkForm()" type="submit" class="btn btn-dark">로그인 🐶</a>
             <a href="http://192.168.0.8:5000/join" type="submit" class="btn btn-dark">회원가입 🐱</a>
         </form>
     </div>
+<script defer src="{{ url_for('static', filename='js/login.js') }}"></script>
 {% endblock %}
