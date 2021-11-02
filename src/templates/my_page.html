@@ -12,6 +12,20 @@ body {
   background: linear-gradient(90deg, #ff9966, #ff5e62);
 
 }
+.fas.fa-home{
+  color: #ff9966;
+  display:flex;
+  font-size: 1.2rem;
+  margin: 0 0 .6rem 0;
+}
+.fas.fa-paw{
+  color: white;
+  font-size: 2rem;
+  background: #777772;
+  padding: 1rem;
+  border-radius: 100%;
+  margin: 0 0 .2rem 0;
+}
 .main-text{
 font-size:1.8rem;
 font-family: 'Hi Melody', cursive;font-family: 'Hi Melody', cursive;
@@ -29,17 +43,6 @@ color:#383d4a;
   height: 100vh;
   position: realtive;
 }
-
-
-.fas.fa-paw{
-  color: white;
-  font-size: 2rem;
-  background: #777772;
-  padding: 1rem;
-  border-radius: 100%;
-  margin: 0 0 1rem 0;
-}
-
 .card-content {
   max-width: 30rem;
   background-color: #e4efed;
@@ -88,7 +91,7 @@ input {
   border: none;
   outline: none;
   cursor: pointer;
-  margin-top:1rem;
+  margin-top:.5rem;
 }
 .filebox input[type="file"] {
   position: absolute;
@@ -127,12 +130,16 @@ input {
  </style>
 <div class="wrapper">
   <form action="#" class="card-content">
+      <div class="home">
+      <i class="fas fa-home">Home</i>
+      </div>
     <div class="container">
       <div class="image">
        <i class="fas fa-paw"></i>
       </div>
+
       <h1 class="main-text">누구개</h1>
-      <h5 class="mini-text">우리집 귀여운 강아지를 자랑해 주세요. </h5>
+      <h5 class="mini-text">"우리집 귀여운 댕댕이를 자랑해 주세요." </h5>
     </div>
       <div class="filebox">
   <label for="file">img</label>
@@ -145,7 +152,7 @@ input {
         <input type="text" placeholder="나이" id="age">
         <input type="text" placeholder="견종" id="breed">
          <input type="text" placeholder="소개" id="intro">
-        <div> <button class="save-btn">등록하기</button></div>
+        <div> <button class="save-btn">등록</button></div>
     </div>
   </form>
 </div>
