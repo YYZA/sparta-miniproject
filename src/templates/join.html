@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-<script defer src="{{ url_for('static', filename='js/index.js') }}"></script>
+<script defer src="{{ url_for('static', filename='js/join.js') }}"></script>
 {% block content %}
     <div class="back">
         <div class="container">
@@ -38,7 +38,7 @@
                                 id="check"></span>
                         </tr>
                         <hr class="mb-4">
-                        <button class="btn btn-dark btn-lg btn-block" type="submit">가입 완료</button>
+                        <button onclick="goLoginForm()" class="btn btn-dark btn-lg btn-block" type="submit">가입 완료</button>
                     </form>
                 </div>
             </div>
