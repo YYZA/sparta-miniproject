@@ -1,12 +1,11 @@
 {% extends "base.html" %}
-<script defer src="{{ url_for('static', filename='js/join.js') }}"></script>
 {% block content %}
-<form method="post">
+
     <div class="back">
         <div class="container">
             <div class="input-form-backgroud row">
                 <div class="input-form col-md-12 mx-auto"><h4 class="mb-3">회원가입</h4>
-                    <form class="validation-form" novalidate>
+
                         <div class="row">
                             <div class="col-md-6 mb-3"><label for="name">이름</label> <input type="text"
                                                                                            class="form-control"
@@ -39,11 +38,11 @@
                                 id="check"></span>
                         </tr>
                         <hr class="mb-4">
-                        <button class="btn btn-dark btn-lg btn-block" type="submit">가입 완료</button>
-                    </form>
+                        <button  onclick="sendDB()" id="user" class="btn btn-dark btn-lg btn-block" type="submit">가입 완료</button>
+
                 </div>
             </div>
         </div>
     </div>
-</form>
+<script defer src="{{ url_for('static', filename='js/join.js') }}"></script>
 {% endblock %}

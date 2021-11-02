@@ -31,7 +31,7 @@ function check_pw() {
         USER_PW.value = '';
     }
     if (USER_PW.value !== '' && USER_PW.value !== '') {
-        if (USER_PW.value == USER_PW.value) {
+        if (USER_PW.value === document.getElementById('pw2').value) {
             PW_CHECK.innerHTML = '비밀번호가 일치합니다.'
             PW_CHECK.style.color = 'blue';
         } else {
@@ -41,19 +41,22 @@ function check_pw() {
     }
 }
 
-
 function sendDB() {
-                let email = $('#email').val()
-                let nickname = $('#nickname').val()
-                let name = $('#name').val()
-                let pw = $('#pw').val()
+    let email = $('#email').val()
+    let nickname = $('#nickname').val()
+    let name = $('#name').val()
+    let pw = $('#pw').val()
+    console.log(email)
 
-                $.ajax({
-                    type: "POST",
-                    url: "/join",
-                    data: {email, nickname, name, pw },
-                    success: function (response) { // 성공하면
-                        window.location("/login")
-                        }
-                     })
-                    }
+    $.ajax({
+        type: 'POST',
+        url: "/join",
+        data: {email_give:email, nickname_give :nickname, name_give:name, pw_give:pw},
+        error: function (error) {
+            alert("Error!");
+        },
+        success: function (response) {
+            alert("회원가입이 완료되었습니다!");
+        }
+    })
+}
