@@ -1,7 +1,7 @@
 {% extends "base.html"  %}
 {% block content %}
     <div class="back">
-        <a href="#">
+        <a href="http://192.168.0.8:5000/join">
             <div id="logo_img"></div>
         </a>
         <form  class="logintab">
@@ -14,8 +14,8 @@
                 <label for="password">Password</label>
                 <input type="password" class="form-control" id="password" placeholder="Password">
             </div>
-            <button type="submit" class="btn btn-dark">로그인 🐶</button>
-            <button type="button" class="btn btn-dark">회원가입 🐱</button>
+            <a href="http://192.168.0.8:5000/join" type="submit" class="btn btn-dark">로그인 🐶</a>
+            <a href="http://192.168.0.8:5000/join" type="submit" class="btn btn-dark">회원가입 🐱</a>
         </form>
     </div>
 {% endblock %}

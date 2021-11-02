@@ -48,6 +48,13 @@
             margin-bottom: 10px;
             margin-top: 10px;
         }
+        .btn-dark {
+        background-color: peru;
+        }
+        .btn-dark:hover{
+            background-color: bisque;
+            color: black;
+        }
 
         @media screen and (max-width: 1080px) {
             .back {

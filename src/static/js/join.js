@@ -40,5 +40,6 @@ function check_pw() {
 }
 
 function goLoginForm() {
-            location.href="/login";
+            window.location="/login";
         }
+
