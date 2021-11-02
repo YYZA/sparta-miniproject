@@ -1,4 +1,162 @@
 {% extends "base.html"  %}
 {% block content %}
+<style>
+   @import url('https://fonts.googleapis.com/css2?family=Hi+Melody&display=swap');
+
+html {
+  font-size: 20px;
+
+}
+
+body {
+  background: linear-gradient(90deg, #ff9966, #ff5e62);
+
+}
+.main-text{
+font-size:1.8rem;
+font-family: 'Hi Melody', cursive;font-family: 'Hi Melody', cursive;
+font-weight:500;
+color:#383d4a;
+}
+.mini-text{
+font-size: .9rem;
+font-family: 'Hi Melody', cursive;font-family: 'Hi Melody', cursive;
+font-weight:700;
+margin-bottom:5vh;
+color:#383d4a;
+}
+.wrapper {
+  height: 100vh;
+  position: realtive;
+}
+
+
+.fas.fa-paw{
+  color: white;
+  font-size: 2rem;
+  background: #777772;
+  padding: 1rem;
+  border-radius: 100%;
+  margin: 0 0 1rem 0;
+}
+
+.card-content {
+  max-width: 30rem;
+  background-color: #e4efed;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  border-radius: 1rem;
+  padding: 4rem .5rem;
+  box-shadow: 1px 1px 2rem rgba(0,0,0,.3);
+  text-align: center;
+}
+
+.card-content h1 {
+  text-transform: uppercase;
+  margin: 0 0 1rem 0;
+}
+
+.card-content p {
+  font-size: .8rem;
+  margin: 0 0 2rem 0;
+}
+
+input {
+  padding: .8rem 1rem;
+  width: 55%;
+  border-radius: 5rem;
+  outline: none;
+  border: .1rem solid #d1d1d1;
+  font-size: .7rem;
+  margin-top:0.5rem;
+}
+
+::placeholder {
+  color: #d1d1d1;
+}
+
+.save-btn {
+  padding: .8rem 2rem;
+  border-radius: 5rem;
+  background: linear-gradient(90deg, #ff9966, #ff5e62);
+  color: #fff;
+  font-size: 0.9rem;
+  font-family: 'Hi Melody', cursive;font-family: 'Hi Melody', cursive;
+  font-weight:500;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin-top:1rem;
+}
+.filebox input[type="file"] {
+  position: absolute;
+  width: 0;
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+}
+
+.filebox label {
+  font-size:20px;
+  display: inline-block;
+  padding: 10px 10px;
+  color: #999;
+  vertical-align: middle;
+  background-color: #fdfdfd;
+  cursor: pointer;
+  border-radius:0.5rem;
+}
+
+.filebox .upload-name {
+  display: inline-block;
+  font-size:18px;
+  color:#999;
+  padding: 5px 10px;
+  vertical-align: middle;
+  background-color: #f5f5f5;
+  border:1rem;
+  border-radius: 5rem;
+  width:240px;
+
+}
+
+
+ </style>
+<div class="wrapper">
+  <form action="#" class="card-content">
+    <div class="container">
+      <div class="image">
+       <i class="fas fa-paw"></i>
+      </div>
+      <h1 class="main-text">누구개</h1>
+      <h5 class="mini-text">우리집 귀여운 강아지를 자랑해 주세요. </h5>
+    </div>
+      <div class="filebox">
+  <label for="file">img</label>
+  <input type="file" id="file">
+
+  <input class="upload-name" value="">
+</div>
+    <div class="form-input">
+        <input type="text" placeholder="이름" id="name">
+        <input type="text" placeholder="나이" id="age">
+        <input type="text" placeholder="견종" id="breed">
+         <input type="text" placeholder="소개" id="intro">
+        <div> <button class="save-btn">등록하기</button></div>
+    </div>
+  </form>
+</div>
+
+<script>
+$("#file").on('change',function(){
+  var fileName = $("#file").val();
+  $(".upload-name").val(fileName);
+});
+</script>
 
 {% endblock %}
+
+
