@@ -141,29 +141,100 @@ input {
       <h1 class="main-text">누구개</h1>
       <h5 class="mini-text">"우리집 귀여운 댕댕이를 자랑해 주세요." </h5>
     </div>
-      <div class="filebox">
+    <div class="filebox">
   <label for="file">img</label>
   <input type="file" id="file">
 
-  <input class="upload-name" value="">
+  <input class="upload-name" id="file1">
 </div>
     <div class="form-input">
         <input type="text" placeholder="이름" id="name">
         <input type="text" placeholder="나이" id="age">
         <input type="text" placeholder="견종" id="breed">
-         <input type="text" placeholder="소개" id="intro">
-        <div> <button class="save-btn">등록</button></div>
+        <input type="text" placeholder="소개" id="intro">
+        <div> <button class="save-btn" onclick="upload()">등록</button></div>
     </div>
   </form>
 </div>
 
 <script>
+
 $("#file").on('change',function(){
   var fileName = $("#file").val();
   $(".upload-name").val(fileName);
 });
+
+
+function upload() {
+    var fileNm = $("#file").val();
+
+    if (fileNm != "") {
+
+    var ext = fileNm.slice(fileNm.lastIndexOf(".") + 1).toLowerCase();
+
+    if (!(ext == "gif" || ext == "jpg" || ext == "png")) {
+        alert("이미지파일 (.jpg, .png, .gif ) 만 업로드 가능합니다.");
+        return false;
+          }
+
+         }
+
+
+    if (file.value==""){
+        let file=$('#file').val();
+        alert("img파일을 업로드해 주세요.");
+        file.focus()
+        return;
+        }
+
+    if (age.value==""){
+        let age=$('#age').val();
+        alert("나이를 입력해 주세요.");
+        age.focus()
+        return;
+        }
+    if (name.value==""){
+        let name=$('#name').val();
+        alert("이름을 입력해 주세요.");
+        name.focus()
+        return;
+        }
+    if (breed.value==""){
+        let bleed=$('#breed').val();
+        alert("견종을 입력해 주세요.");
+        breed.focus()
+        return;
+        }
+    if (intro.value==""){
+        let intro=$('#intro').val();
+        alert("소개글을 작성해 주세요.");
+        name.focus()
+        return;
+        }
+     else{
+     alert("등록완료");
+     }
+    }
+    function upload() {
+        let file= $('#file').va;();
+        let name= $('#name').va;();
+        let file= $('#age').va;();
+        let file= $('#breed').va;();
+        let file= $('#intro').va;();
+        $.ajax({
+            type:"POST",
+            url:"",
+            data: {file_give:file, name_give:name, age_give:age, breed_give:breed,intro_give:intro},
+            success: function (responese){
+                alert(response["msg"]);
+                window.location.reload();
+                }
+                })
+                }
+
+
+
 </script>
 
 {% endblock %}
-
 
