@@ -156,6 +156,7 @@ input {
     </div>
   </form>
 </div>
+<!--페이지수정-->
 
 <script>
 
@@ -189,10 +190,13 @@ function upload() {
 
     if (age.value==""){
         let age=$('#age').val();
+        let checkNum = /[0-9]/;
         alert("나이를 입력해 주세요.");
         age.focus()
         return;
         }
+
+
     if (name.value==""){
         let name=$('#name').val();
         alert("이름을 입력해 주세요.");
@@ -215,22 +219,24 @@ function upload() {
      alert("등록완료");
      }
     }
-    function upload() {
-        let file= $('#file').va;();
-        let name= $('#name').va;();
-        let file= $('#age').va;();
-        let file= $('#breed').va;();
-        let file= $('#intro').va;();
-        $.ajax({
-            type:"POST",
-            url:"",
-            data: {file_give:file, name_give:name, age_give:age, breed_give:breed,intro_give:intro},
-            success: function (responese){
-                alert(response["msg"]);
-                window.location.reload();
-                }
-                })
-                }
+
+
+<!--    function upload() {-->
+<!--        let file= $('#file').va;();-->
+<!--        let name= $('#name').va;();-->
+<!--        let file= $('#age').va;();-->
+<!--        let file= $('#breed').va;();-->
+<!--        let file= $('#intro').va;();-->
+<!--        $.ajax({-->
+<!--            type:"POST",-->
+<!--            url:"",-->
+<!--            data: {file_give:file, name_give:name, age_give:age, breed_give:breed,intro_give:intro},-->
+<!--            success: function (responese){-->
+<!--                alert(response["msg"]);-->
+<!--                window.location.reload();-->
+<!--                }-->
+<!--                })-->
+<!--                }-->
 
 
 
