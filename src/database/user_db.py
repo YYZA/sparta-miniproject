@@ -2,7 +2,6 @@ from src.database import WhoisDog_db
 from werkzeug.security import generate_password_hash
 
 class User:
-
     def insert_user(new_user):
         success = False
 
@@ -24,5 +23,15 @@ class User:
             result = True
 
         return result
+
+
+
+
+
+
+
+
+
+
 
 

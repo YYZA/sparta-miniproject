@@ -39,3 +39,5 @@ def check_dup():
     email_receive = request.form['username_give']
     exists = User.find_user(email_receive)
     return jsonify({'result': 'success', 'exists': exists})
+
+
