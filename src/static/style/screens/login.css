@@ -41,7 +41,15 @@
     margin-bottom: 10px;
 }
 
-#id,
+#join{
+    color: white;
+}
+
+#join:hover{
+    color: black;
+}
+
+#email,
 #password {
     border: 1px solid black;
     margin-bottom: 10px;
@@ -52,6 +60,11 @@
 .btn-dark:hover{
     background-color: bisque;
     color: black;
+}
+
+#help-id-login,
+#help-password-login{
+    color: red;
 }
 
 @media screen and (max-width: 1080px) {
