@@ -1,231 +1,37 @@
 {% extends "base.html"  %}
 {% block content %}
-<style>
-   @import url('https://fonts.googleapis.com/css2?family=Hi+Melody&display=swap');
-
-    html
-    {
-      font-size: 20px;
-    }
-    body
-    {
-      background: linear-gradient(90deg, #ff9966, #ff5e62);
-    }
-
-    .fas.fa-home
-    {
-      color: #ff9966;
-      display:flex;
-      font-size: 1.2rem;
-      margin: 0 0 .6rem 0;
-    }
-    #home-name{
-
-      color: #ff9966;
-    }
-    .fas.fa-paw
-    {
-      color: white;
-      font-size: 2rem;
-      background: #777772;
-      padding: 1rem;
-      border-radius: 100%;
-      margin: 0 0 .2rem 0;
-    }
-    .main-text
-    {
-      font-size:1.8rem;
-      font-family: 'Hi Melody', cursive;font-family: 'Hi Melody', cursive;
-      font-weight:500;
-      color:#383d4a;
-    }
-    .mini-text
-    {
-      font-size: .9rem;
-      font-family: 'Hi Melody', cursive;font-family: 'Hi Melody', cursive;
-      font-weight:700;
-      margin-bottom:5vh;
-      color:#383d4a;
-    }
-    .wrapper
-    {
-      height: 100vh;
-      position: realtive;
-    }
-    .card-content
-    {
-      max-width: 30rem;
-      background-color: #e4efed;
-      position: relative;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%,-50%);
-      border-radius: 1rem;
-      padding: 4rem .5rem;
-      box-shadow: 1px 1px 2rem rgba(0,0,0,.3);
-      text-align: center;
-    }
-
-    .card-content h1
-    {
-     text-transform: uppercase;
-     margin: 0 0 1rem 0;
-    }
-
-    .card-content p
-    {
-     font-size: .8rem;
-     margin: 0 0 2rem 0;
-    }
-   .form-input .name, .age, .breed, .intro
-    {
-    padding: .8rem 1rem;
-    width: 55%;
-    border-radius: 5rem;
-    outline: none;
-    border: .1rem solid #d1d1d1;
-    font-size: .7rem;
-    margin-top:0.5rem;
-    }
-
-    ::placeholder
-    {
-    color: #d1d1d1;
-    }
-
-    .save-btn
-    {
-    padding: .7rem 2rem;
-    border-radius: 1.5rem;
-    background: linear-gradient(90deg, #ff9966, #ff5e62);
-    color: #fff;
-    font-size: 1rem;
-    font-family: 'Hi Melody', cursive;font-family: 'Hi Melody', cursive;
-    font-weight:500;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    margin-top:.5rem;
-    }
-
-    .filebox input[type="file"]
-    {
-    position: absolute;
-    width: 0;
-    height: 0;
-    padding: 0;
-    overflow: hidden;
-    border: 0;
-    }
-
-    .filebox label
-    {
-    font-size:20px;
-    display: inline-block;
-    padding: 10px 10px;
-    color: #999;
-    vertical-align: middle;
-    background-color: #fdfdfd;
-    cursor: pointer;
-    border-radius:0.5rem;
-    }
-
-    .filebox .upload-name
-    {
-      display: inline-block;
-      font-size:18px;
-      color:#999;
-      padding: 5px 10px;
-      vertical-align: middle;
-      background-color: #f5f5f5;
-      border:1rem;
-      border-radius: 5rem;
-      width:240px;
-    }
-
-
- </style>
 <div class="wrapper">
-  <form action="#" class="card-content" method="post">
-      <div class="home">
-      <i class="fas fa-home"><a href = "" target = "" id="home-name">Home</a></i>
-      </div>
-    <div class="container">
-      <div class="image">
-       <i class="fas fa-paw"></i>
-      </div>
+    <form action="/mypage/" class="card-content" method="post" onsubmit="return upload()" enctype="multipart/form-data">
+        <div class="home">
+            <i class="fas fa-home">
+                <a href = "" target = "" id="home-name">Home</a>
+            </i>
+        </div>
+        <div class="container">
+            <div class="image">
+                <i class="fas fa-paw"></i>
+            </div>
 
-      <h1 class="main-text">누구개</h1>
-      <h5 class="mini-text">"우리집 귀여운 댕댕이를 자랑해 주세요." </h5>
-    </div>
-    <div class="filebox">
-  <label for="file">img</label>
-  <input type="file" id="file" accept="image/*">
-        <input class="upload-name" id="file1" value=''>
+            <h1 class="main-text">누구개</h1>
+            <h5 class="mini-text">"우리집 귀여운 댕댕이를 자랑해 주세요." </h5>
+        </div>
+        <div class="filebox">
+            <label for="file">img</label>
+            <input name="pet_img" type="file" id="file" accept=".png, .jpg, .jepg">
+            <input class="upload-name" id="file1" value=''>
+        </div>
+        <div class="form-input">
+            <input name="pet_name" type="text" class="name" placeholder="이름" id="name" maxlength="5">
+            <input name="pet_age" type="number" class="age" placeholder="나이" id="age">
+            <input name="pet_breed" type="text" class="breed" placeholder="견종" id="breed" maxlength="15">
+            <input name="pet_intro" type="text" class="intro" placeholder="소개" id="intro" maxlength="30">
+            <div>
+                <input type="submit" class="save-btn" value="등록">
+            </div>
+        </div>
+    </form>
 </div>
-    <div class="form-input">
-        <input type="text" class="name" placeholder="이름" id="name" maxlength="5">
-        <input type="number" class="age" placeholder="나이" id="age">
-        <input type="text" class="breed" placeholder="견종" id="breed" maxlength="10">
-        <input type="text" class="intro" placeholder="소개" id="intro" maxlength="30">
-        <div> <input type="submit" class="save-btn" onclick="upload()" value="등록"></div>
-    </div>
-  </form>
-</div>
 
-<script>
-
-$("#file").on('change',function(){
-  var fileName = $("#file").val();
-  $(".upload-name").val(fileName);
-});
-
-
-
-    function upload() {
-
-    <!--이미지 파일만 불러오게-->
-    if (file.value==""){
-        let file=$('#file').val();
-        alert("img파일을 업로드해 주세요.");
-        return;
-        }
-
-    <!--글자수 제한-->
-    if (name.value==""){
-        let name = $('#name').val();
-        alert("이름을 입력해 주세요.");
-        return;
-    }
-
-
-    <!--<숫자로만 입력-->
-    if (age.value==""){
-        let age=$('#age').val();
-        alert("나이를 입력해 주세요.");
-        return;
-        }
-
-    <!--글자수 제한-->
-    if (breed.value==""){
-        let bleed=$('#breed').val();
-        alert("견종을 입력해 주세요.");
-        return;
-        }
-
-    <!--글자수 제한-->
-    if (intro.value==""){
-        let intro=$('#intro').val();
-        alert("소개글을 작성해 주세요.");
-        return;
-        }
-     else{
-     alert("등록완료");
-     }
-    }
-</script>
-
-
-
+<script defer src="{{ url_for('static', filename='js/upload.js') }}"></script>
 {% endblock %}
 
