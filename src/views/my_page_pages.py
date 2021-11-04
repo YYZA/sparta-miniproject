@@ -1,10 +1,15 @@
 from datetime import datetime
 
 from flask import Flask, Blueprint, render_template, request, redirect
-import hashlib
+
+import settings
 from settings import BUCKET_NAME
 from werkzeug.utils import secure_filename
 from src.database.s3 import s3_connection
+
+import hashlib
+import jwt
+
 
 my_page_pages = Blueprint('my_page_pages', __name__, url_prefix="/mypage")
 
@@ -42,10 +47,13 @@ def upload_pet():
     location = s3.get_bucket_location(Bucket=BUCKET_NAME)['LocationConstraint']
     image_url = f'https://{BUCKET_NAME}.s3.{location}.amazonaws.com/{hex_filename}'
 
+    token_receive = request.cookies.get('mytoken')
+    payload = jwt.decode(token_receive, settings.SECRET_KEY, algorithms=['HS256'])
+
 
     # 유저 이메일 추가 필요
     pet_info = {
-        "user_email": "",
+        "user_email": payload["id"],
         "pet_name": request.form.get("pet_name"),
         "pet_age": request.form.get("pet_age"),
         "pet_breed": request.form.get("pet_breed"),

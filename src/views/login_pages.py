@@ -1,3 +1,4 @@
+import settings
 from src.database import WhoisDog_db
 from werkzeug.security import check_password_hash
 from flask import Blueprint, render_template, request, flash, jsonify, url_for, session,redirect
@@ -8,7 +9,6 @@ import datetime
 import timedelta
 
 
-SECRET_KEY = 'WHOISDOG'
 
 login_pages = Blueprint('login_pages', __name__, url_prefix="/login")
 
@@ -37,7 +37,7 @@ def api_sign_in():
             'id': email_receive,
             'exp': datetime.datetime.utcnow() + datetime.timedelta(hours=24)
         }
-        token = jwt.encode(payload, SECRET_KEY, algorithm='HS256')
+        token = jwt.encode(payload, settings.SECRET_KEY, algorithm='HS256')
         print(token)
         return jsonify({'result': 'success', 'token': token})
 
