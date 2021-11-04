@@ -6,12 +6,15 @@ from flask import Blueprint, render_template, request, flash, jsonify, url_for, 
 
 import jwt
 import datetime
-import timedelta
 
 
 
 login_pages = Blueprint('login_pages', __name__, url_prefix="/login")
 
+@login_pages.before_request
+def login_check():
+    if request.cookies.get('mytoken') is not None:
+        return redirect("/")
 
 @login_pages.route("/")
 def login():
@@ -35,10 +38,7 @@ def api_sign_in():
     else:
         payload = {
             'id': email_receive,
-            'exp': datetime.datetime.utcnow() + datetime.timedelta(hours=24)
+            'exp': datetime.datetime.utcnow() + datetime.timedelta(days=7)
         }
         token = jwt.encode(payload, settings.SECRET_KEY, algorithm='HS256')
-        print(token)
         return jsonify({'result': 'success', 'token': token})
-
-

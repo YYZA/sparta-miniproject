@@ -16,11 +16,15 @@ my_page_pages = Blueprint('my_page_pages', __name__, url_prefix="/mypage")
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = './upload_img'  # 저장될 로컬 폴더(나중에 삭제 예정)
 
+
+@my_page_pages.before_request
+def login_check():
+    if request.cookies.get('mytoken') is not None:
+        return redirect("/")
+
 @my_page_pages.route("/")
 def my_page():
     return render_template("my_page.html")
-
-
 
 @my_page_pages.route("/", methods=["POST"])
 def upload_pet():
@@ -50,8 +54,6 @@ def upload_pet():
     token_receive = request.cookies.get('mytoken')
     payload = jwt.decode(token_receive, settings.SECRET_KEY, algorithms=['HS256'])
 
-
-    # 유저 이메일 추가 필요
     pet_info = {
         "user_email": payload["id"],
         "pet_name": request.form.get("pet_name"),
