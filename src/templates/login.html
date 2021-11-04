@@ -1,23 +1,26 @@
 {% extends "base.html"  %}
 {% block content %}
     <div class="back">
-        <a href="/">
+        <a href="/login/">
             <div id="logo_img"></div>
         </a>
-        <form  action="" method="post" class="logintab">
+        <div  class="logintab">
             <div class="form-group">
                 <label for="id">E-mail</label>
-                <input type="email"  class="form-control" id="email" aria-describedby="emailHelp"
-                       placeholder="Enter email">
+                <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp">
+                <span id="help-id-login"></span>
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" class="form-control" id="password" placeholder="Password">
+                <input type="password" class="form-control" name="password" id="password">
+                <span id="help-password-login"></span>
             </div>
 
-            <a onclick="checkForm()" type="submit" class="btn btn-dark">로그인 🐶</a>
-            <a href="/join" type="submit" class="btn btn-dark">회원가입 🐱</a>
-        </form>
+            <button id="submit" class="btn btn-dark">로그인 🐶</button>
+            <a href="/join/" id="join" class="btn btn-dark">회원가입 🐱</a>
+        </div>
     </div>
 <script defer src="{{ url_for('static', filename='js/login.js') }}"></script>
 {% endblock %}
+
+

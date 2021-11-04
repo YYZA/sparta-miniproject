@@ -1,13 +1,15 @@
 // Input tag
 const USER_PW = document.getElementById('pw');
 const USER_PW2 = document.getElementById('pw2');
-const EMAIL = document.getElementById('email')
+const EMAIL = document.getElementById('email');
+const NICKNAME = document.getElementById('nickname')
 
 
 // Check span tag
 const EMAIL_CHECK = document.getElementById('email_check');
 const PW_CHECK = document.getElementById('pw_check');
 const PW2_CHECK = document.getElementById('pw2_check');
+const NICKNAME_CHECK = document.getElementById('nickname_check');
 
 // Regex
 const REGEX_PWD = /^.*(?=^.{8,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/; // 아이디와 패스워드가 적합한지 검사할 정규식
@@ -93,11 +95,15 @@ function emailDuplicateCheck() {
     });
 }
 
+
+
 function init() {
     $("#pw").on("propertychange change keyup paste input", pwdRegexCheck);
     $("#pw2").on("propertychange change keyup paste input", pwdEqualCheck);
 
     $("#email").change(emailDuplicateCheck);
+
+
 }
 
 init();

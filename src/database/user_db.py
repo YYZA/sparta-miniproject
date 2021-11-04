@@ -1,8 +1,8 @@
 from src.database import WhoisDog_db
 from werkzeug.security import generate_password_hash
+from werkzeug.security import check_password_hash
 
 class User:
-
     def insert_user(new_user):
         success = False
 
@@ -15,14 +15,24 @@ class User:
     def password_encry(password):
         return generate_password_hash(password)
 
+
     def find_user(email_receive):
         result = False
 
         finded_email = WhoisDog_db.users.find_one({'email': email_receive})
-        print(finded_email)
         if finded_email is not None:
             result = True
 
         return result
+
+
+
+
+
+
+
+
+
+
 
 

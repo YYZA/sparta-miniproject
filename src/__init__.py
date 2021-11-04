@@ -13,3 +13,4 @@ def register_blueprints_on_app(app):
 app = Flask(__name__, instance_relative_config=True)
 
 register_blueprints_on_app(app)
+app.config["SECRET_KEY"] = "WHOISDOG"
