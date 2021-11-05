@@ -87,8 +87,14 @@ function emailDuplicateCheck() {
                 EMAIL_CHECK.style.color = "red";
                 EMAIL.focus();
             } else {
-                EMAIL_CHECK.innerHTML = "사용할 수 있는 아이디입니다.";
-                EMAIL_CHECK.style.color = "blue";
+                if (REGEX_EMAIL.test(EMAIL.value)) {
+                    EMAIL_CHECK.innerHTML = "사용할 수 있는 아이디입니다.";
+                    EMAIL_CHECK.style.color = "blue";
+                } else {
+                    EMAIL_CHECK.innerHTML = "이메일 형식으로 입력해주세요.";
+                    EMAIL_CHECK.style.color = "red";
+                    EMAIL.focus();
+                }
             }
         }
     });
