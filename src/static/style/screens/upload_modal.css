@@ -34,9 +34,12 @@
             left: 50%;
             transform: translate(-50%, -50%);
             border-radius: 1rem;
-            padding: 4rem .5rem;
+            padding: .5rem .5rem;
             box-shadow: 1px 1px 2rem rgba(0, 0, 0, .3);
             text-align: center;
+
+            width: 30rem;
+            height: 44.7rem;
 
         }
 
@@ -64,6 +67,15 @@
             margin-top: 0.5rem;
             opacity: 0.9;
         }
+
+        .container {
+            margin-top: 3rem;
+        }
+
+        .home {
+            padding-right: 1.2rem;
+        }
+
         /* modal-close추가 */
         .save-btn, .modal-close {
             padding: 10px 30px;
@@ -81,6 +93,9 @@
             margin: 20px 10px;
         }
 
+        .home {
+
+        }
 
         .file-box {
             border: .2rem solid #d1d1d1;
