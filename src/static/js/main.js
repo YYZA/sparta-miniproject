@@ -301,7 +301,7 @@ function checkCookie() {
         let logIn = cookieArr[i].match('mytoken')
             if (logIn) { // 로그인 상태 //
                 document.querySelector(".btn-join").style.display = "none";
-                document.querySelector(".btn-login").innerHTML = "<button onclick=\"location.href='/'\" class=\"btn-logout\">LOGOUT</button>"
+                document.querySelector(".btn-login").innerHTML = "<button onclick=\"logOut()\" class=\"btn-logout\">LOGOUT</button>"
             } else {
                 return;
             }
