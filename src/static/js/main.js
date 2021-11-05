@@ -3,6 +3,8 @@ $(document).ready(function () {
     checkCookie();
 })
 
+
+
 function get_cards() {
     // $("#card-box").empty()
     $.ajax({
