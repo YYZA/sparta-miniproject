@@ -4,7 +4,7 @@ $(document).ready(function () {
 })
 
 function get_cards(user_name) {
-    // $("#card-box").empty()
+    $("#card-box").empty()
     $.ajax({
         type: "GET",
         url: `/get_cards?user_name_give=${user_name}`,
@@ -300,8 +300,8 @@ function checkCookie() {
         for (let i = 0; i < cookieArr.length; i++) {
         let logIn = cookieArr[i].match('mytoken')
             if (logIn) { // 로그인 상태 //
-                document.querySelector(".btn-join").style.visibility = "hidden";
-                document.querySelector(".btn-login").innerHTML = "<button onclick=\"location.href='/main'\" class=\"btn-logout\">LOGOUT</button>"
+                document.querySelector(".btn-join").style.display = "none";
+                document.querySelector(".btn-login").innerHTML = "<button onclick=\"location.href='/'\" class=\"btn-logout\">LOGOUT</button>"
             } else {
                 return;
             }
