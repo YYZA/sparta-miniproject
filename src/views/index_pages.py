@@ -16,11 +16,6 @@ def index():
                            cards=cards,
                            title=title)
 
-# attach card - GET
-@index_pages.route("/api/get_cards", methods=['GET'])
-def get_cards():
-    cards = list(WhoisDog_db.pet_board.find({}).sort([('upload_time', -1), ('_id', -1)]))
-    return jsonify({'cards': cards})
 
 # like - POST
 @index_pages.route('/api/like', methods=['POST'])
@@ -50,16 +45,16 @@ class Likes():
         datas = Likes.get_all()
         return jsonify(datas)
 
-# sort by date - GET
-@index_pages.route('/api/sort/date', methods=['GET'])
-def sort_by_date():
-    cards = list(WhoisDog_db.pet_board.fine({}).sort([('upload_time', -1), ('_id', -1)]))
-    return jsonify({'cards': cards})
-
-# sort by like - GET
-@index_pages.route('/api/sort/like', methods=['GET'])
-def sort_by_like():
-    cards = list(WhoisDog_db.pet_board.fine({}, {'_id': False}).sort([('like_count', -1), ('_id', -1)]))
-    return jsonify({'cards': cards})
+# # sort by date - GET
+# @index_pages.route('/api/sort/date', methods=['GET'])
+# def sort_by_date():
+#     cards = list(WhoisDog_db.pet_board.fine({}).sort([('upload_time', -1), ('_id', -1)]))
+#     return jsonify({'cards': cards})
+#
+# # sort by like - GET
+# @index_pages.route('/api/sort/like', methods=['GET'])
+# def sort_by_like():
+#     cards = list(WhoisDog_db.pet_board.fine({}, {'_id': False}).sort([('like_count', -1), ('_id', -1)]))
+#     return jsonify({'cards': cards})
 
 
