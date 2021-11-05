@@ -16,7 +16,7 @@ my_page_pages = Blueprint('my_page_pages', __name__, url_prefix="/mypage")
 
 @my_page_pages.route("/")
 def my_page():
-    return render_template("my_page.html")
+    return render_template("upload_modal.html")
 
 @my_page_pages.route("/", methods=["POST"])
 def upload_pet():

@@ -11,5 +11,5 @@ def register_blueprints_on_app():
     from .join_pages import join_pages
     src.app.register_blueprint(join_pages)
 
-    from .my_page_pages import my_page_pages
+    from .upload_modal import my_page_pages
     src.app.register_blueprint(my_page_pages)
