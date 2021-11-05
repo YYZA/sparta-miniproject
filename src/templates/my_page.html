@@ -2,9 +2,9 @@
 {% block content %}
 <div class="wrapper">
     <form action="/mypage/" class="card-content" method="post" onsubmit="return upload()" enctype="multipart/form-data">
-        <div class="home">
-            <i class="fas fa-home"><a href = "../index.html" target = "" id="home-name">Home</a></i>
-        </div>
+<!--        <div class="home">-->
+<!--            <i class="fas fa-home"><a href = "../index.html" target = "" id="home-name">Home</a></i>-->
+<!--        </div>-->
         <div class="container">
             <div class="image">
                 <i class="fas fa-paw"></i>
@@ -21,8 +21,7 @@
         <div class="file-box">
             <input type="file" id="uploadInput" accept="image/*" name="pet_img" onchange="javascript:getRealPath(this);" />
 
-            <!-- style="text-overflow: hidden;" 추가 -->
-            <input type="hidden" id="real_path" name="real_path" style="text-overflow: hidden;" value="" />
+            <input type="hidden" id="real_path" name="real_path" value="" />
 
         </div>
 

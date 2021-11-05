@@ -92,7 +92,7 @@
             margin: 0 auto;
             color: #c8c8c8;
             opacity: 0.9;
-
+            overflow: hidden;
         }
 
          /* h1 .nu로변경 */
