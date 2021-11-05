@@ -1,21 +1,37 @@
+.nav {
+    width: 30%;
+}
+
 .nav-up {
     top: -180px;
 }
 
 .nav-bar {
-    display: grid;
-    grid-gap: 1rem;
-    grid-template-columns: 1fr 135px 100px 100px 3fr 5rem 5rem 1fr;
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
     z-index: 1;
-    margin: 0;
-    padding: 0;
-    height: 80px;
-    list-style-type: none;
+    height: 9vh;
     background-color: bisque;
+    display: flex;
+    align-content: center;
+    width: 100%;
+    justify-content: space-between;
+    padding: 0 10vw;
+}
+
+.nav-btns {
+    display: flex;
+    align-items: center;
+    width: 10%;
+}
+
+.nav-btns button {
+    margin: 0 10px;
+}
+
+.nav-menu-items {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .nav-item {
@@ -32,13 +48,10 @@ a:active, a:link, a:visited, a:hover {
 
 #nav-upload {
     text-align: left;
-    /*padding: 1.4rem 0 0 1.7rem;*/
-    margin: 1.4rem 0 0 1.5rem;
 }
 
 #nav-dropdown {
     text-align: left;
-    margin-top: 1.4rem;
 }
 
 .btn {
@@ -50,9 +63,6 @@ a:active, a:link, a:visited, a:hover {
     font-size: 1rem;
 }
 
-.btn-sort {
-    padding-bottom: 0;
-}
 
 .btn-post:after, .btn-sort:after {
     position: absolute;
@@ -142,12 +152,10 @@ a:active, a:link, a:visited, a:hover {
 }
 
 .btn-login, .btn-join, .btn-logout {
-    border: 1px solid black;
     border-radius: 30px;
     background-color: tomato;
-    display: inline-block;
+
     height: 2rem;
-    margin-top: 1.5rem;
 }
 
 .btn-login:hover, .btn-join:hover, .btn-logout:hover {
@@ -295,34 +303,4 @@ a:active, a:link, a:visited, a:hover {
 
 .modal-close {
     cursor: pointer;
-}
-
-/*Media Query*/
-@media (max-width: 600px) {
-    .card-box {
-        flex-wrap: wrap;
-        padding:10px;
-    }
-
-    .nav-bar {
-        display: grid;
-        grid-template-columns: 100%;
-        grid-template-rows: 0fr 35px 20px 30px 1fr 30px 1rem 1fr;
-        grid-gap: 10px;
-        place-items: start center;
-        height: 300px;
-    }
-    .btn-join,
-    .btn-login {
-        width: 20%;
-        margin: 0;
-    }
-    .btn.btn-post {
-        margin-bottom : 10px;
-        margin-right: 19px;
-    }
-
-    .banner {
-        display: none;
-    }
 }

@@ -2,71 +2,74 @@
 {% block content %}
 
 <nav class="nav-bar grid" role="navigation">
-    <span class="nav-item"></span>
-    <span class="nav-item" id="nav-logo">
-        <a href="/"><img src="../static/img/main_logo_dog.png" style="width: 135px; padding-top: 0.5rem"></a>
-    </span>
-    <span class="nav-item" id="nav-upload">
-        <div id="modal">
-<!--                추가한 모달창 -->
-                <div class="wrapper">
-    <form action="/mypage/" class="card-content" method="post" onsubmit="return upload()" enctype="multipart/form-data">
+    <div class="nav">
+        <span class="nav-item" id="nav-logo">
+            <a href="/"><img src="../static/img/main_logo_dog.png" style="width: 135px; padding-top: 0.5rem"></a>
+        </span>
+        <div class="nav-menu-items">
+        <span class="nav-item" id="nav-upload">
+            <div id="modal">
+    <!--                추가한 모달창 -->
+            <div class="wrapper">
+        <form action="/mypage/" class="card-content" method="post" onsubmit="return upload()" enctype="multipart/form-data">
 
-        <div class="container">
-            <div class="image">
-                <i class="fas fa-paw"></i>
+            <div class="container">
+                <div class="image">
+                    <i class="fas fa-paw"></i>
+                </div>
+                <h1>
+                    <span class="nu">누</span>
+                    <span class="nu">구</span>
+                    <span class="nu">개</span>
+                    <span class="nu"></span>
+                </h1>
+                <h5 class="mini-text">"우리집 귀여운 댕댕이를 자랑해 주세요." </h5>
             </div>
-            <h1>
-                <span class="nu">누</span>
-                <span class="nu">구</span>
-                <span class="nu">개</span>
-                <span class="nu"></span>
-            </h1>
-            <h5 class="mini-text">"우리집 귀여운 댕댕이를 자랑해 주세요." </h5>
-        </div>
 
-        <div class="file-box">
-            <input type="file" id="uploadInput" accept="image/*" name="pet_img"
-                   onchange="javascript:getRealPath(this);"/>
+            <div class="file-box">
+                <input type="file" id="uploadInput" accept="image/*" name="pet_img"
+                       onchange="javascript:getRealPath(this);"/>
 
-            <input type="hidden" id="real_path" name="real_path" value=""/>
+                <input type="hidden" id="real_path" name="real_path" value=""/>
 
-        </div>
-
-        <div class="form-input">
-            <input name="pet_name" type="text" class="name" placeholder="이름" id="name" maxlength="10">
-            <input name="pet_age" type="number" class="age" placeholder="나이" id="age" min="1" max="30">
-            <input name="pet_breed" type="text" class="breed" placeholder="견종" id="breed" maxlength="15">
-            <input name="pet_intro" type="text" class="intro" placeholder="소개" id="intro" maxlength="30">
-            <div>
-                <input type="submit" class="save-btn" value="등록">
             </div>
-            <div class="home">
-            <i class="fas fa-home">
-                <a target="" class="modal-close" id="home-name">Home</a></i>
-        </div>
-        </div>
-    </form>
-</div>
 
-            <!-- 모달창 끝-->
-        </div>
+            <div class="form-input">
+                <input name="pet_name" type="text" class="name" placeholder="이름" id="name" maxlength="10">
+                <input name="pet_age" type="number" class="age" placeholder="나이" id="age" min="1" max="30">
+                <input name="pet_breed" type="text" class="breed" placeholder="견종" id="breed" maxlength="15">
+                <input name="pet_intro" type="text" class="intro" placeholder="소개" id="intro" maxlength="30">
+                <div>
+                    <input type="submit" class="save-btn" value="등록">
+                </div>
+                <div class="home">
+                <i class="fas fa-home">
+                    <a target="" class="modal-close" id="home-name">Home</a></i>
+            </div>
+            </div>
+        </form>
+    </div>
+
+                <!-- 모달창 끝-->
+            </div>
         <span>
             <a type="button" class="btn btn-post">업로드</a>
         </span>
-    </span>
-    <span class="nav-item dropdown" id="nav-dropdown">
+        </span>
+        <span class="nav-item dropdown" id="nav-dropdown">
         <a type="button" class="btn btn-sort" data-toggle="dropdown" aria-haspopup="true"
            aria-expanded="false">정렬</a>
             <div class="dropdown-content">
                 <button class="btn" id="btn-sort-date" onclick="sortByDate()">최신순</button>
                 <button class="btn" id="btn-sort-like" onclick="sortByLike()">좋아요순</button>
             </div>
-    </span>
-    <span class="nav-item"></span>
-    <button onclick="location.href='/join'" class="btn-join">JOIN</button>
-    <button onclick="location.href='/login'" class="btn-login">LOGIN</button>
-    <span class="nav-item"></span>
+        </span>
+    </div>
+    </div>
+    <div class="nav-btns">
+        <button onclick="location.href='/join'" class="btn-join">JOIN</button>
+        <button onclick="location.href='/login'" class="btn-login">LOGIN</button>
+    </div>
 </nav>
 <div class="section" id="section1">
     <div class="banner">
