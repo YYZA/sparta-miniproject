@@ -1,11 +1,9 @@
 $(document).ready(function () {
-    get_cards("user_info.user_name")
+    get_cards("user_info.user_name");
+    checkCookie();
 })
 
 function get_cards(user_name) {
-    if (user_name == undefined) {
-        user_name = ""
-    }
     // $("#card-box").empty()
     $.ajax({
         type: "GET",
@@ -21,26 +19,33 @@ function get_cards(user_name) {
 
                     let class_like = card['like_by_me'] ? "far fa-heart" : "fas fa-heart"
 
-                    let temp_html = `<div class="card-container" id="${card['_id']}">
+                    let temp_html = `<div class="card-container">
                                         <div class="card-top">
                                             <span class="card-username">${card['user_name']}</span>
-                                            <span>${num2str(card['like_count'])}</span>
-                                            <span>
-                                                <button class="btn btn-like" aria-label="like" onclick="likeClick(), 'like'"><i class="${class_like} icon-heart"></i></button>
+                                            <span class="card-like">
+                                                <span class="card-like-count">${card['like_count']}</span>
+                                                <span>
+                                                <button class="btn btn-like" id="${card['_id']}" aria-label="like" onclick="likeClick(), 'like'"><i
+                                                        class="far fa-heart" style="font-size: 1.5rem; color: dimgray"></i></button>
+                                            </span>
                                             </span>
                                         </div>
-                            <!--            image-->
-                                        <img src="${card['image']}"
-                                             alt="card-image" class="card-img">
-                                        <div class="card-desc">
-                                            <div class="pet-desc">
-                                                <p>제 이름은 ${card['pet_name']} 에요!</p>
-                                                <p>나이는 ${card['pet_age']}살 이구요,</p>
-                                                <p>${card['pet_species']} 랍니다!</p>
-                                            </div>
-                                            <p class="pet-intro">${card['pet_intro']}</p>
-                                            <p>${time_before}</p>
+                                        <!--            image-->
+                                        <div class="card-middle">
+                                            <img src="${card['pet_img']}"
+                                                 alt="card-image" class="card-img">
                                         </div>
+                                        <div class="card-bottom">
+                                            <div class="card-desc">
+                                                <div class="pet-desc">
+                                                    <p>제 이름은 <span class="pet-name" style="font-weight: 700">${card['pet_name']}</span> 에요!</p>
+                                                    <p>나이는 <span class="pet-age" style="font-weight: 700">${card['pet_age']}</span>살 이구요,</p>
+                                                    <p><span class="pet-species" style="font-weight: 700">${card['pet_species']}</span> 랍니다!</p>
+                                                </div>
+                                                <p class="pet-intro"><span style="font-size: 1.5rem">"</span>${card['pet_intro']}<span style="font-size: 1.5rem">"</span></p>
+                                            </div>
+                                        </div>
+                                        <p class="upload-date">${card['upload_date']}</p>
                                     </div>`
                     $("#card-box").append(temp_html)
                 }
@@ -136,26 +141,33 @@ function sortByDate() {
 
                     let class_like = card['like_by_me'] ? "far fa-heart" : "fas fa-heart"
 
-                    let temp_html = `<div class="card-container" id="${card['_id']}">
+                    let temp_html = `<div class="card-container">
                                         <div class="card-top">
                                             <span class="card-username">${card['user_name']}</span>
-                                            <span>${num2str(card['like_count'])}</span>
-                                            <span>
-                                                <button class="btn btn-like" aria-label="like" onclick="likeClick(), 'like'"><i class="${class_like} icon-heart"></i></button>
+                                            <span class="card-like">
+                                                <span class="card-like-count">${card['like_count']}</span>
+                                                <span>
+                                                <button class="btn btn-like" id="${card['_id']}" aria-label="like" onclick="likeClick(), 'like'"><i
+                                                        class="far fa-heart" style="font-size: 1.5rem; color: dimgray"></i></button>
+                                            </span>
                                             </span>
                                         </div>
-                            <!--            image-->
-                                        <img src="${card['image']}"
-                                             alt="card-image" class="card-img">
-                                        <div class="card-desc">
-                                            <div class="pet-desc">
-                                                <p>제 이름은 ${card['pet_name']} 에요!</p>
-                                                <p>나이는 ${card['pet_age']}살 이구요,</p>
-                                                <p>${card['pet_species']} 랍니다!</p>
-                                            </div>
-                                            <p class="pet-intro">${card['pet_intro']}</p>
-                                            <p>${time_before}</p>
+                                        <!--            image-->
+                                        <div class="card-middle">
+                                            <img src="${card['pet_img']}"
+                                                 alt="card-image" class="card-img">
                                         </div>
+                                        <div class="card-bottom">
+                                            <div class="card-desc">
+                                                <div class="pet-desc">
+                                                    <p>제 이름은 <span class="pet-name" style="font-weight: 700">${card['pet_name']}</span> 에요!</p>
+                                                    <p>나이는 <span class="pet-age" style="font-weight: 700">${card['pet_age']}</span>살 이구요,</p>
+                                                    <p><span class="pet-species" style="font-weight: 700">${card['pet_species']}</span> 랍니다!</p>
+                                                </div>
+                                                <p class="pet-intro"><span style="font-size: 1.5rem">"</span>${card['pet_intro']}<span style="font-size: 1.5rem">"</span></p>
+                                            </div>
+                                        </div>
+                                        <p class="upload-date">${card['upload_date']}</p>
                                     </div>`
                     $("#card-box").append(temp_html)
                 }
@@ -181,26 +193,33 @@ function sortByLike() {
 
                     let class_like = card['like_by_me'] ? "far fa-heart" : "fas fa-heart"
 
-                    let temp_html = `<div class="card-container" id="${card['_id']}">
+                    let temp_html = `<div class="card-container">
                                         <div class="card-top">
                                             <span class="card-username">${card['user_name']}</span>
-                                            <span>${num2str(card['like_count'])}</span>
-                                            <span>
-                                                <button class="btn btn-like" aria-label="like" onclick="likeClick(), 'like'"><i class="${class_like} icon-heart"></i></button>
+                                            <span class="card-like">
+                                                <span class="card-like-count">${card['like_count']}</span>
+                                                <span>
+                                                <button class="btn btn-like" id="${card['_id']}" aria-label="like" onclick="likeClick(), 'like'"><i
+                                                        class="far fa-heart" style="font-size: 1.5rem; color: dimgray"></i></button>
+                                            </span>
                                             </span>
                                         </div>
-                            <!--            image-->
-                                        <img src="${card['image']}"
-                                             alt="card-image" class="card-img">
-                                        <div class="card-desc">
-                                            <div class="pet-desc">
-                                                <p>제 이름은 ${card['pet_name']} 에요!</p>
-                                                <p>나이는 ${card['pet_age']}살 이구요,</p>
-                                                <p>${card['pet_species']} 랍니다!</p>
-                                            </div>
-                                            <p class="pet-intro">${card['pet_intro']}</p>
-                                            <p>${time_before}</p>
+                                        <!--            image-->
+                                        <div class="card-middle">
+                                            <img src="${card['pet_img']}"
+                                                 alt="card-image" class="card-img">
                                         </div>
+                                        <div class="card-bottom">
+                                            <div class="card-desc">
+                                                <div class="pet-desc">
+                                                    <p>제 이름은 <span class="pet-name" style="font-weight: 700">${card['pet_name']}</span> 에요!</p>
+                                                    <p>나이는 <span class="pet-age" style="font-weight: 700">${card['pet_age']}</span>살 이구요,</p>
+                                                    <p><span class="pet-species" style="font-weight: 700">${card['pet_species']}</span> 랍니다!</p>
+                                                </div>
+                                                <p class="pet-intro"><span style="font-size: 1.5rem">"</span>${card['pet_intro']}<span style="font-size: 1.5rem">"</span></p>
+                                            </div>
+                                        </div>
+                                        <p class="upload-date">${card['upload_date']}</p>
                                     </div>`
                     $("#card-box").append(temp_html)
                 }
@@ -255,4 +274,44 @@ function hasScrolled() {
         }
     }
     lastScrollTop = status;
+}
+
+// const getCookieValue = (key) => {
+//     let cookieKey = key + "=";
+//     let result = "";
+//     const cookieArr = document.cookie.split(";");
+//
+//     for (let i = 0; i < cookieArr.length; i++) {
+//         if (cookieArr[i][0] === " ") {
+//             cookieArr[i] = cookieArr[i].substring(1);
+//         }
+//
+//         if (cookieArr[i].indexOf(cookieKey) === 0) {
+//             result = cookieArr[i].slice(cookieKey.length, cookieArr[i].length);
+//             return result;
+//         }
+//     }
+//     return result;
+// }
+
+function checkCookie() {
+    let cookieArr = document.cookie.split(";");
+    try {
+        for (let i = 0; i < cookieArr.length; i++) {
+        let logIn = cookieArr[i].match('mytoken')
+            if (logIn) { // 로그인 상태 //
+                document.querySelector("#nav-join").style.visibility = "hidden";
+                document.querySelector("#nav-login").innerHTML = "<a href=\"/\" class=\"btn-logout\" onclick='logOut()'>LOGOUT</a>"
+            } else {
+                return;
+            }
+        }
+    } catch (e) {
+        console.log(e);
+    }
+}
+
+function logOut() {
+    document.cookie = "mytoken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    window.location.href = "/main"
 }

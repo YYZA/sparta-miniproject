@@ -1,3 +1,6 @@
+* {
+    font-family: 'Noto Sans KR', sans-serif;
+}
 
 .nav-up {
     top: -180px;
@@ -32,23 +35,15 @@ a:active, a:link, a:visited, a:hover {
     color: black;
 }
 
-#nav-logo {
-    font-size: 3.2rem;
-    font-weight: bold;
-    text-align: left;
-    tex-align: baseline;
-
-    margin-top: 1.1rem;
-}
-
 #nav-upload {
     text-align: left;
-    padding: 2rem 0 0 2rem;
+    /*padding: 1.4rem 0 0 1.7rem;*/
+    margin: 1.4rem 0 0 1.5rem;
 }
 
 #nav-dropdown {
     text-align: left;
-    padding: 2rem 0 0 0.5rem;
+    margin-top: 1.4rem;
 }
 
 .btn {
@@ -58,6 +53,10 @@ a:active, a:link, a:visited, a:hover {
 
 .btn-post, .btn-sort {
     font-size: 1rem;
+}
+
+.btn-sort {
+    padding-bottom: 0;
 }
 
 .btn-post:after, .btn-sort:after {
@@ -86,9 +85,9 @@ a:active, a:link, a:visited, a:hover {
     outline: 0;
     background-color: transparent;
 
-    font-size: 12px;
+    font-size: 0.75em;
     padding: 0;
-    margin: 3px 5px 0 0;
+    margin: 0 0 0 0.7rem;
 }
 
 #btn-sort-date:after, #btn-sort-like:after {
@@ -101,30 +100,35 @@ a:active, a:link, a:visited, a:hover {
 }
 
 #btn-sort-date:after {
-    width: 31px;
+    width: 2.6em;
 }
 
 #btn-sort-like:after {
-    width: 41px;
+    width: 3.45em;
 }
 
 #btn-sort-date:hover:after, #btn-sort-like:hover:after {
     transform: scaleX(1);
 }
 
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
 .dropdown-content {
     display: none;
     position: absolute;
-    width: 100px;
+    width: 100%;
     text-align: left;
     margin: 3px 0 0 0;
 }
 
 .dropdown-content a {
-    display: inline-block;
+    display: block;
 }
 
-.btn-sort:hover .dropdown-content {
+.dropdown:hover .dropdown-content {
     display: block;
 }
 
@@ -136,24 +140,19 @@ a:active, a:link, a:visited, a:hover {
 
     border: 1px solid black;
     border-radius: 30px;
+    background-color: tomato;
 
     margin-top: 1.8rem;
     cursor: pointer;
 }
 
-.btn-login, .btn-join {
+.btn-login, .btn-join, .btn-logout {
     display: inline-block;
     margin-top: 0.3rem;
 }
 
-#nav-login:hover, #nav-join:hover, .btn-login:hover, .btn-join:hover {
-    background-color: tomato;
-    color: white;
-}
-
-.section {
-    max-width: 100%;
-    margin: auto;
+#nav-login:hover, #nav-join:hover {
+    background-color: cornsilk;
 }
 
 .banner {
@@ -161,6 +160,7 @@ a:active, a:link, a:visited, a:hover {
     width: 100%;
     height: 180px;
     top: 80px;
+    z-index: 1;
 
     text-align: left;
     line-height: 1.3;
@@ -170,7 +170,7 @@ a:active, a:link, a:visited, a:hover {
 .banner-text {
     position: absolute;
     width: 100%;
-    margin: 17.2px auto;
+    margin: 0 auto;
     text-align: center;
 }
 
@@ -195,35 +195,46 @@ a:active, a:link, a:visited, a:hover {
     left: 0;
     right: 0;
 
-    padding: 0 10%;
+    width: 100%;
+    height: 100%;
+
+    padding: 0 200px;
+
+    display: flex;
+    justify-content: center;
+    align-content: space-around;
+    flex-wrap: wrap;
+    flex-direction: column;
 }
 
 .card-container {
-    border: 1px solid darkgrey;
-    border-radius: 10px;
+    display: inline-block;
+    border-radius: 15px;
 
     width: 350px;
-    height: 550px;
+    height: 500px;
 
-    margin: 20px 20px 0 0;
+    margin: 3rem 2.3rem;
+    box-shadow: 3px 3px 2px 1px rgba(0, 0, 0, 0.2);
+
 }
 
 .card-top {
     width: 350px;
-    height: 32px;
+    height: 40px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
     vertical-align: middle;
+    background-color: floralwhite;
 }
 
 .card-username {
-    max-width: 100px;
-    margin-left: 20px;
-    font-size: 18px;
-    font-weight: bold;
+    display: inline-block;
+    width: 200px;
+    margin: 0 45px 0 20px;
+    font-size: 1.3rem;
+    font-weight: 700;
     color: black;
-}
-
-.btn-like {
-    margin-left: 240px;
 }
 
 .btn-like, #btn-like-status, .btn-comment {
@@ -232,24 +243,48 @@ a:active, a:link, a:visited, a:hover {
     background-color: transparent;
 }
 
-.icon-heart, .icon-comment {
-    font-size: 23px;
+.card-middle {
+    height: 314px;
+    background-color: floralwhite;
 }
 
 .card-img {
-    width: 100%;
-    height: 350px;
+    display: block;
+
+    border-radius: 50%;
+    width: 19rem;
+    height: 19rem;
+    margin: auto;
+}
+
+.card-bottom {
+    padding-top: 10px;
+    height: 123px;
 }
 
 .card-desc {
-    margin: 0 13px;
-    font-size: 14px;
+    color: dimgrey;
+    font-size: 0.9rem;
+    font-weight: 400;
+
+    text-align: center;
     line-height: 1.6;
+
+    padding: 0 20px;
 }
 
-.pet-desc {
-    text-align: center;
+.pet-intro {
+    font-size: 1rem;
+    padding: 3px 0;
+    font-weight: 700;
+}
 
+.upload-date {
+    font-size: 0.9rem;
+    text-align: right;
+    padding-right: 10px;
+    color: darkgrey;
+    font-weight: 500;
 }
 
 /*Modal CSS*/
@@ -265,22 +300,14 @@ a:active, a:link, a:visited, a:hover {
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-.modal-body {
-    position: fixed;
-    top: 50%;
-    left: 50%;
+.modal-close {
+    cursor: pointer;
+}
 
-    width: 600px;
-    height: 400px;
-
-    margin: 0 auto;
-    padding: 40px;
-
-    text-align: center;
-
-    background-color: rgb(255, 255, 255);
-    border-radius: 10px;
-    box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.5);
-
-    transform: translateX(-50%) translateY(-50%);
+/*Media Query*/
+@media (max-width: 600px) {
+    .card-box {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
 }
