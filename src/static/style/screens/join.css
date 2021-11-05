@@ -53,3 +53,7 @@
 form {
     font-family: 'Noto Sans KR', sans-serif;
 }
+
+.row {
+    margin-right: 0;
+}

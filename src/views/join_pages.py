@@ -27,9 +27,9 @@ def join_post():
     new_user = {
         "email":request.form.get("email"),
         "user_name":request.form.get("user_name"),
-        "nick_name":request.form.get("nickname"),
+        "nickname":request.form.get("nickname"),
         "password":User.password_encry(password),
-        "created_date":datetime.datetime.now()
+        "created_time":datetime.datetime.now()
     }
 
     result = User.insert_user(new_user)
