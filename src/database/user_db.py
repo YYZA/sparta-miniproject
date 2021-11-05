@@ -24,7 +24,14 @@ class User:
 
         return result
 
+    def find_nickname(nick_receive):
+        result = False
 
+        finded_email = WhoisDog_db.users.find_one({'nick_name': nick_receive})
+        if finded_email is not None:
+            result = True
+
+        return result
 
 
 

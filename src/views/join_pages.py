@@ -40,10 +40,15 @@ def join_post():
     return redirect(url_for("login_pages.login"))
 
 
-@join_pages.route('check_dup', methods=['POST'])
-def check_dup():
-    email_receive = request.form['username_give']
+@join_pages.route('/email/check_dup', methods=['POST'])
+def email_check_dup():
+    email_receive = request.form['email_give']
     exists = User.find_user(email_receive)
     return jsonify({'result': 'success', 'exists': exists})
 
 
+@join_pages.route('/nick/check_dup', methods=['POST'])
+def nick_check_dup():
+    nick_receive = request.form['nickname_give']
+    exists = User.find_nickname(nick_receive)
+    return jsonify({'result': 'success', 'exists': exists})

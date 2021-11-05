@@ -77,9 +77,9 @@ function pwdEqualCheck() {
 function emailDuplicateCheck() {
     $.ajax({
         type: "POST",
-        url: "/join/check_dup",
+        url: "/join/email/check_dup",
         data: {
-            username_give: $(this).val()
+            email_give: $(this).val()
         },
         success: function (response) {
             if (response["exists"]) {
@@ -93,13 +93,31 @@ function emailDuplicateCheck() {
                 } else {
                     EMAIL_CHECK.innerHTML = "이메일 형식으로 입력해주세요.";
                     EMAIL_CHECK.style.color = "red";
-                    EMAIL.focus();
                 }
             }
         }
     });
 }
 
+function nickDuplicateCheck() {
+  $.ajax({
+        type: "POST",
+        url: "/join/nick/check_dup",
+        data: {
+            nickname_give: $(this).val()
+        },
+        success: function (response) {
+            if (response["exists"]) {
+                NICKNAME_CHECK.innerHTML = "이미 존재하는 닉네임입니다.";
+                NICKNAME_CHECK.style.color = "red";
+                NICKNAME.focus();
+            } else {
+                NICKNAME_CHECK.innerHTML = "사용할 수 있는 닉네임입니다.";
+                NICKNAME_CHECK.style.color = "blue";
+            }
+        }
+    });
+}
 
 
 function init() {
@@ -107,8 +125,7 @@ function init() {
     $("#pw2").on("propertychange change keyup paste input", pwdEqualCheck);
 
     $("#email").change(emailDuplicateCheck);
-
-
+    $("#nickname").change(nickDuplicateCheck);
 }
 
 init();
