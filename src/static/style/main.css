@@ -11,3 +11,7 @@
 @import "screens/login.css";
 @import "screens/join.css";
 @import "screens/upload_modal.css";
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+}
