@@ -6,7 +6,7 @@ Ajax , jwt 토큰을 이용해 로그인 기능과 회원가입기능을 구현�
 
 <a href="https://whoisdog.herokuapp.com/">누구개?(부제:WhoisDog) 링크로 가기</a> <br/>
 
-![썸네일](https://user-images.githubusercontent.com/70641418/127768727-74e0a62f-9d35-4e1f-89a1-3bb7fb8b2084.JPG)
+![thumbnail](https://user-images.githubusercontent.com/92071754/140544391-b931c7f9-2083-495b-8138-76e923424e2d.png)
 
 
 <br/>
