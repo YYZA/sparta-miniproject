@@ -1,13 +1,13 @@
 $(document).ready(function () {
-    get_cards("user_info.user_name");
+    get_cards();
     checkCookie();
 })
 
-function get_cards(user_name) {
+function get_cards() {
     $("#card-box").empty()
     $.ajax({
         type: "GET",
-        url: `/get_cards?user_name_give=${user_name}`,
+        url: "/api/get_cards",
         data: {},
         success: function (response) {
             if (response["result"] == "success") {

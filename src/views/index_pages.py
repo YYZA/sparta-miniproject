@@ -33,7 +33,7 @@ def get_cards():
             card["like_by_me"] = bool(WhoisDog_db.pet_board.find_one({"_id": card["_id"], "type": "like", "user_email": user_email}))
         return jsonify({"result": "success", "msg": "포스팅을 가져왔습니다.", "cards": cards})
     except (jwt.ExpiredSignatureError, jwt.exceptions.DecodeError):
-        return redirect(url_for("main"))
+        return redirect("/")
 
 # like - POST
 @index_pages.route('/api/like', methods=['POST'])
