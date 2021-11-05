@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from flask import Flask, Blueprint, render_template, request, redirect
+from flask import Blueprint, request, redirect, render_template
 
 import settings
 from settings import BUCKET_NAME
@@ -16,6 +16,8 @@ my_page_pages = Blueprint('my_page_pages', __name__, url_prefix="/mypage")
 
 @my_page_pages.route("/", methods=["POST"])
 def upload_pet():
+    if request.cookies.get('mytoken') is None:
+        return redirect("/")
 
     if 'pet_img' not in request.files:
         return redirect("/")
