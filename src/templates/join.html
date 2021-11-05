@@ -1,10 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="back">
-    <div class="container">
+<div class="back_join">
         <div class="input-form-backgroud row">
             <div class="input-form col-md-12 mx-auto">
-                <h4 class="mb-3">회원가입</h4>
+                <h4 class="mb-33">회원가입</h4>
                 <form action="/join/" method="post" onsubmit="return checkForm();">
                     <div class="row">
                         <div class="col-md-6 mb-3">
@@ -56,7 +55,6 @@
                 </form>
             </div>
         </div>
-    </div>
 </div>
 <script defer src="{{ url_for('static', filename='js/join.js') }}"></script>
 {% endblock %}
