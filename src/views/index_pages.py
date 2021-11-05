@@ -10,8 +10,11 @@ SECRET_KEY = ''
 
 @index_pages.route("/")
 def index():
+    title = "누구개(Who Is Dog)"
     cards = list(WhoisDog_db.pet_board.find({}).sort([('upload_time', -1), ('_id', -1)]))
-    return render_template("index.html", cards=cards)
+    return render_template("index.html",
+                           cards=cards,
+                           title=title)
 
 # attach card - GET
 @index_pages.route("/api/get_cards", methods=['GET'])
