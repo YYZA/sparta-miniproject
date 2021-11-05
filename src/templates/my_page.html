@@ -15,13 +15,14 @@
                 <span class="nu">개</span>
                 <span class="nu"></span>
             </h1>
-            <h5 class="mini-text">"우리집 귀여운 댕댕이를 자랑해 주세요." </h5>
+            <h5 class="mini-text">"우리 집 귀여운 반려동물을 자랑해 주세요." </h5>
         </div>
 
         <div class="file-box">
             <input type="file" id="uploadInput" accept="image/*" name="pet_img" onchange="javascript:getRealPath(this);" />
 
-            <input type="hidden" id="real_path" name="real_path" value="" />
+            <!-- style="text-overflow: hidden;" 추가 -->
+            <input type="hidden" id="real_path" name="real_path" style="text-overflow: hidden;" value="" />
 
         </div>
 
@@ -32,6 +33,8 @@
             <input name="pet_intro" type="text" class="intro" placeholder="소개" id="intro" maxlength="30">
             <div>
                 <input type="submit" class="save-btn" value="등록">
+                <!-- 취소버튼추가 -->
+                <input type="button" class='modal-close' value="취소">
             </div>
         </div>
     </form>
