@@ -11,7 +11,6 @@
     left: 0;
     right: 0;
     z-index: 1;
-
     margin: 0;
     padding: 0;
     height: 80px;
@@ -128,7 +127,21 @@ a:active, a:link, a:visited, a:hover {
     display: block;
 }
 
-.btn-login, .btn-join {
+#nav-login, #nav-join {
+    font-size: 1rem;
+    vertical-align: text-bottom;
+    width: 4.4rem;
+    height: 1.6rem;
+
+    border: 1px solid black;
+    border-radius: 30px;
+    background-color: tomato;
+
+    margin-top: 1.8rem;
+    cursor: pointer;
+}
+
+.btn-login, .btn-join, .btn-logout {
     border: 1px solid black;
     border-radius: 30px;
     background-color: tomato;
@@ -293,8 +306,29 @@ a:active, a:link, a:visited, a:hover {
 /*Media Query*/
 @media (max-width: 600px) {
     .card-box {
-        flex-direction: row;
         flex-wrap: wrap;
         padding:10px;
+    }
+
+    .nav-bar {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 0fr 35px 20px 30px 1fr 30px 1rem 1fr;
+        grid-gap: 10px;
+        place-items: start center;
+        height: 300px;
+    }
+    .btn-join,
+    .btn-login {
+        width: 20%;
+        margin: 0;
+    }
+    .btn.btn-post {
+        margin-bottom : 10px;
+        margin-right: 19px;
+    }
+
+    .banner {
+        display: none;
     }
 }
