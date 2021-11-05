@@ -4,7 +4,7 @@ $(document).ready(function () {
 })
 
 function get_cards() {
-    $("#card-box").empty()
+    // $("#card-box").empty()
     $.ajax({
         type: "GET",
         url: "/api/get_cards",
@@ -120,7 +120,7 @@ function likeClick(_id, type) {
 }
 
 function sortByDate() {
-    $("#card-box").empty()
+    // $("#card-box").empty()
     $.ajax({
         type: 'GET',
         url: '/sort/date',
@@ -166,7 +166,7 @@ function sortByDate() {
 }
 
 function sortByLike() {
-    $("#card-box").empty()
+    // $("#card-box").empty()
     $.ajax({
         type: 'GET',
         url: '/sort/like',
