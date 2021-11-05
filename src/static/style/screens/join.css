@@ -1,0 +1,59 @@
+.back_join {
+    min-height: 100vh;
+    background: url(../../img/backgroun.png);
+}
+
+
+.input-form {
+    text-align: left;
+    max-width: 680px;
+    margin-top: 150px;
+    padding: 32px;
+    background: #fff;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15)
+}
+
+.mb-33 {
+    border: 1px solid saddlebrown;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 150px;
+    text-align: center;
+    font-size: 1.5rem;
+    background-color: bisque;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.input-form label {
+    margin-bottom:10px ;
+}
+
+.input-form span {
+
+    margin-top: 5px;
+    font-weight: 600;
+}
+
+#pw {
+    width: 100%;
+    margin-top: 10px;
+
+}
+#pw2 {
+    width: 100%;
+    margin-top: 10px;
+
+}
+form {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.row {
+    margin-right: 0;
+}

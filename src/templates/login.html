@@ -1,4 +1,26 @@
 {% extends "base.html"  %}
 {% block content %}
+    <div class="back">
+        <a href="/">
+            <img class="logo_img" src="{{ url_for('static', filename='img/logo_dog.png') }}">
+        </a>
+        <div  class="logintab">
+            <div class="form-group">
+                <label for="id">E-mail</label>
+                <input minlength="8" maxlength="35"type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp">
+                <span id="help-id-login"></span>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input minlength="8" maxlength="15" type="password" class="form-control" name="password" id="password">
+                <span id="help-password-login"></span>
+            </div>
 
+            <button id="submit" class="btn btn-dark">로그인 🐶</button>
+            <button onclick="join()" id="join" class="btn btn-dark">회원가입 🐱</button>
+        </div>
+    </div>
+<script defer src="{{ url_for('static', filename='js/login.js') }}"></script>
 {% endblock %}
+
+
