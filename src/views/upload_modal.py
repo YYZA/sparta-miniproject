@@ -18,12 +18,12 @@ my_page_pages = Blueprint('my_page_pages', __name__, url_prefix="/mypage")
 def upload_pet():
 
     if 'pet_img' not in request.files:
-        return redirect("/mypage")
+        return redirect("/")
 
     pet_img = request.files['pet_img']
 
     if pet_img.filename == '':
-        return redirect("/mypage")
+        return redirect("/")
 
     filename = secure_filename(pet_img.filename).encode("utf-8")
     hex_filename = hashlib.sha256(filename).hexdigest()
