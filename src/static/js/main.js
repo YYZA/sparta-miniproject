@@ -14,11 +14,6 @@ function get_cards() {
                 let cards = response["cards"]
                 for (let i = 0; i < cards.length; i++) {
                     let card = cards[i]
-                    let time_post = new Date(card["date"])
-                    let time_before = time2str(time_post)
-
-                    let class_like = card['like_by_me'] ? "far fa-heart" : "fas fa-heart"
-
                     let temp_html = `<div class="card-container">
                                         <div class="card-top">
                                             <span class="card-username">${card['user_name']}</span>
@@ -45,7 +40,6 @@ function get_cards() {
                                                 <p class="pet-intro"><span style="font-size: 1.5rem">"</span>${card['pet_intro']}<span style="font-size: 1.5rem">"</span></p>
                                             </div>
                                         </div>
-                                        <p class="upload-date">${card['upload_date']}</p>
                                     </div>`
                     $("#card-box").append(temp_html)
                 }
@@ -136,11 +130,6 @@ function sortByDate() {
                 let cards = response["cards"]
                 for (let i = 0; i < cards.length; i++) {
                     let card = cards[i]
-                    let time_post = new Date(card["date"])
-                    let time_before = time2str(time_post)
-
-                    let class_like = card['like_by_me'] ? "far fa-heart" : "fas fa-heart"
-
                     let temp_html = `<div class="card-container">
                                         <div class="card-top">
                                             <span class="card-username">${card['user_name']}</span>
@@ -167,7 +156,6 @@ function sortByDate() {
                                                 <p class="pet-intro"><span style="font-size: 1.5rem">"</span>${card['pet_intro']}<span style="font-size: 1.5rem">"</span></p>
                                             </div>
                                         </div>
-                                        <p class="upload-date">${card['upload_date']}</p>
                                     </div>`
                     $("#card-box").append(temp_html)
                 }
@@ -188,11 +176,6 @@ function sortByLike() {
                 let cards = response["cards"]
                 for (let i = 0; i < cards.length; i++) {
                     let card = cards[i]
-                    let time_post = new Date(card["date"])
-                    let time_before = time2str(time_post)
-
-                    let class_like = card['like_by_me'] ? "far fa-heart" : "fas fa-heart"
-
                     let temp_html = `<div class="card-container">
                                         <div class="card-top">
                                             <span class="card-username">${card['user_name']}</span>
@@ -219,7 +202,6 @@ function sortByLike() {
                                                 <p class="pet-intro"><span style="font-size: 1.5rem">"</span>${card['pet_intro']}<span style="font-size: 1.5rem">"</span></p>
                                             </div>
                                         </div>
-                                        <p class="upload-date">${card['upload_date']}</p>
                                     </div>`
                     $("#card-box").append(temp_html)
                 }
@@ -301,7 +283,7 @@ function checkCookie() {
         let logIn = cookieArr[i].match('mytoken')
             if (logIn) { // 로그인 상태 //
                 document.querySelector(".btn-join").style.visibility = "hidden";
-                document.querySelector(".btn-login").innerHTML = "<button onclick=\"logOut()\" class=\"btn-logout\" style='border: 0; outline: 0; background-color: tomato'>LOGOUT</button>"
+                document.querySelector(".btn-login").innerHTML = "<button onclick=\"logOut()\" class=\"btn-logout\" style='border: 0; outline: 0; background-color: transparent'>LOGOUT</button>"
             } else {
                 return;
             }
@@ -313,5 +295,5 @@ function checkCookie() {
 
 function logOut() {
     document.cookie = "mytoken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-    window.location.href = "/main"
+    window.location.href = "/"
 }

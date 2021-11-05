@@ -19,21 +19,8 @@ def index():
 # attach card - GET
 @index_pages.route("/api/get_cards", methods=['GET'])
 def get_cards():
-    token_receive = request.cookies.get('mytoken')
-    try:
-        payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
-        user_email = payload["id"]
-        user_name_receive = request.args.get("user_name_give")
-        if user_name_receive == "":
-            cards = list(WhoisDog_db.pet_board.find({}).sort([('upload_time', -1), ('_id', -1)]))
-        else:
-            cards = list(WhoisDog_db.pet_board.find({'user_email': user_name_receive}).sort([('upload_time', -1), ('_id', -1)]))
-        for card in cards:
-            card["_id"] = str(card["_id"])
-            card["like_by_me"] = bool(WhoisDog_db.pet_board.find_one({"_id": card["_id"], "type": "like", "user_email": user_email}))
-        return jsonify({"result": "success", "msg": "포스팅을 가져왔습니다.", "cards": cards})
-    except (jwt.ExpiredSignatureError, jwt.exceptions.DecodeError):
-        return redirect("/")
+    cards = list(WhoisDog_db.pet_board.find({}).sort([('upload_time', -1), ('_id', -1)]))
+    return jsonify({'cards': cards})
 
 # like - POST
 @index_pages.route('/api/like', methods=['POST'])
