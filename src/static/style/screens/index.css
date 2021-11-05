@@ -128,21 +128,7 @@ a:active, a:link, a:visited, a:hover {
     display: block;
 }
 
-#nav-login, #nav-join {
-    font-size: 1rem;
-    vertical-align: text-bottom;
-    width: 4.4rem;
-    height: 1.6rem;
-
-    border: 1px solid black;
-    border-radius: 30px;
-    background-color: tomato;
-
-    margin-top: 1.8rem;
-    cursor: pointer;
-}
-
-.btn-login, .btn-join, .btn-logout {
+.btn-login, .btn-join {
     border: 1px solid black;
     border-radius: 30px;
     background-color: tomato;
