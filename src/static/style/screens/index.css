@@ -1,0 +1,286 @@
+
+.nav-up {
+    top: -180px;
+}
+
+.nav-bar {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: 1fr 135px 100px 100px 3fr 4.4rem 4.4rem 1fr;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+
+    margin: 0;
+    padding: 0;
+    height: 80px;
+    list-style-type: none;
+    background-color: bisque;
+}
+
+.nav-item {
+    text-align: center;
+}
+
+.nav-item a {
+    text-decoration: none;
+}
+
+a:active, a:link, a:visited, a:hover {
+    color: black;
+}
+
+#nav-logo {
+    font-size: 3.2rem;
+    font-weight: bold;
+    text-align: left;
+    tex-align: baseline;
+
+    margin-top: 1.1rem;
+}
+
+#nav-upload {
+    text-align: left;
+    padding: 2rem 0 0 2rem;
+}
+
+#nav-dropdown {
+    text-align: left;
+    padding: 2rem 0 0 0.5rem;
+}
+
+.btn {
+    display: inline;
+    cursor: pointer;
+}
+
+.btn-post, .btn-sort {
+    font-size: 1rem;
+}
+
+.btn-post:after, .btn-sort:after {
+    position: absolute;
+    display: block;
+    content: '';
+    border-bottom: solid 2px tomato;
+    transform: scaleX(0);
+    transition: transform 250ms ease-in-out;
+}
+
+.btn-post:after {
+    width: 2.59em;
+}
+
+.btn-sort:after {
+    width: 1.7em;
+}
+
+.btn-post:hover:after, .btn-sort:hover:after {
+    transform: scaleX(1);
+}
+
+#btn-sort-date, #btn-sort-like {
+    border: 0;
+    outline: 0;
+    background-color: transparent;
+
+    font-size: 12px;
+    padding: 0;
+    margin: 3px 5px 0 0;
+}
+
+#btn-sort-date:after, #btn-sort-like:after {
+    position: absolute;
+    display: block;
+    content: '';
+    border-bottom: solid 2px tomato;
+    transform: scaleX(0);
+    transition: transform 250ms ease-in-out;
+}
+
+#btn-sort-date:after {
+    width: 31px;
+}
+
+#btn-sort-like:after {
+    width: 41px;
+}
+
+#btn-sort-date:hover:after, #btn-sort-like:hover:after {
+    transform: scaleX(1);
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    width: 100px;
+    text-align: left;
+    margin: 3px 0 0 0;
+}
+
+.dropdown-content a {
+    display: inline-block;
+}
+
+.btn-sort:hover .dropdown-content {
+    display: block;
+}
+
+#nav-login, #nav-join {
+    font-size: 1rem;
+    vertical-align: text-bottom;
+    width: 4.4rem;
+    height: 1.6rem;
+
+    border: 1px solid black;
+    border-radius: 30px;
+
+    margin-top: 1.8rem;
+    cursor: pointer;
+}
+
+.btn-login, .btn-join {
+    display: inline-block;
+    margin-top: 0.3rem;
+}
+
+#nav-login:hover, #nav-join:hover, .btn-login:hover, .btn-join:hover {
+    background-color: tomato;
+    color: white;
+}
+
+.section {
+    max-width: 100%;
+    margin: auto;
+}
+
+.banner {
+    position: absolute;
+    width: 100%;
+    height: 180px;
+    top: 80px;
+
+    text-align: left;
+    line-height: 1.3;
+    background-color: bisque;
+}
+
+.banner-text {
+    position: absolute;
+    width: 100%;
+    margin: 17.2px auto;
+    text-align: center;
+}
+
+#banner-text1 {
+    font-size: 32px;
+    font-weight: lighter;
+}
+
+#banner-text2 {
+    font-size: 32px;
+    font-weight: bolder;
+}
+
+#banner-text3 {
+    font-size: 16px;
+    font-weight: lighter;
+}
+
+.card-box {
+    position: absolute;
+    top: 260px;
+    left: 0;
+    right: 0;
+
+    padding: 0 10%;
+}
+
+.card-container {
+    border: 1px solid darkgrey;
+    border-radius: 10px;
+
+    width: 350px;
+    height: 550px;
+
+    margin: 20px 20px 0 0;
+}
+
+.card-top {
+    width: 350px;
+    height: 32px;
+    vertical-align: middle;
+}
+
+.card-username {
+    max-width: 100px;
+    margin-left: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+}
+
+.btn-like {
+    margin-left: 240px;
+}
+
+.btn-like, #btn-like-status, .btn-comment {
+    border: 0;
+    outline: 0;
+    background-color: transparent;
+}
+
+.icon-heart, .icon-comment {
+    font-size: 23px;
+}
+
+.card-img {
+    width: 100%;
+    height: 350px;
+}
+
+.card-desc {
+    margin: 0 13px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.pet-desc {
+    text-align: center;
+
+}
+
+/*Modal CSS*/
+#modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: none;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-body {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+
+    width: 600px;
+    height: 400px;
+
+    margin: 0 auto;
+    padding: 40px;
+
+    text-align: center;
+
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.5);
+
+    transform: translateX(-50%) translateY(-50%);
+}

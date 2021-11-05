@@ -7,9 +7,9 @@
 
 
     <!-- Bootstrap CSS -->
-{#    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"#}
-{#          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"#}
-{#          crossorigin="anonymous">#}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -31,6 +31,18 @@
 
     <!-- 자바스크립트 -->
     <script defer src="{{ url_for('static', filename='js/index.js') }}"></script>
+
+
+    <!-- 구글 폰트 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <!--  og태그, 파비콘(Favicon)  -->
+    <link rel="shortcut icon" href="http://www.clker.com/cliparts/D/P/x/B/S/H/orange-paw-print-md.png">
+    <link rel="icon" href="http://www.clker.com/cliparts/D/P/x/B/S/H/orange-paw-print-md.png" type="image/x-icon">
+    <meta property="og:title" content="누구개 - 귀여운 반려동물을 사진을 올려주세요"/>
+    <meta property="og:description" content="사랑스러운 반려동물을 자랑 할 수 있는 사이트"/>
+    <meta property="og:image" content="{{ url_for('static/img', filename='logo_dog.png') }}"/>
+
 
     {% if title %}
     <title>{{ title }}</title>
