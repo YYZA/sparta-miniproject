@@ -4,6 +4,12 @@ import datetime
 
 join_pages = Blueprint('join_pages', __name__, url_prefix="/join")
 
+
+@join_pages.before_request
+def login_check():
+    if request.cookies.get('mytoken') is not None:
+        return redirect("/")
+
 @join_pages.route("/")
 def join():
     return render_template("join.html")

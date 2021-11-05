@@ -13,14 +13,6 @@ import jwt
 
 my_page_pages = Blueprint('my_page_pages', __name__, url_prefix="/mypage")
 
-app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = './upload_img'  # 저장될 로컬 폴더(나중에 삭제 예정)
-
-
-@my_page_pages.before_request
-def login_check():
-    if request.cookies.get('mytoken') is not None:
-        return redirect("/")
 
 @my_page_pages.route("/")
 def my_page():
