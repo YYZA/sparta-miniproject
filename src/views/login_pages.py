@@ -18,7 +18,9 @@ def login_check():
 
 @login_pages.route("/")
 def login():
-    return render_template("login.html")
+    title = "로그인"
+    return render_template("login.html",
+                           title=title)
 
 
 @login_pages.route('/api/sign_in', methods=["POST"])

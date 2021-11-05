@@ -12,7 +12,9 @@ def login_check():
 
 @join_pages.route("/")
 def join():
-    return render_template("join.html")
+    title = "회원가입"
+    return render_template("join.html",
+                           title=title)
 
 @join_pages.route("/", methods=["POST"])
 def join_post():
